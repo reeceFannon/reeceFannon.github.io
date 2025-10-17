@@ -1,0 +1,45 @@
+{
+  "about": {
+    "name": "Reece Fannon",
+    "title": "",
+    "bio": "",
+    "photo": "imgs/myphoto.jpg",
+    "email": "reece.fannon@outlook.com",
+    "location": "Sidney, OH, USA",
+    "social": {
+      "github": "https://github.com/reecefannon",
+      "linkedin": "https://linkedin.com/in/reecefannon"
+    },
+    "skills": [
+      "R (tidyverse, ggplot2, CARBayes)",
+      "Python (PyTorch, NumPy, SciPy)",
+      "Machine Learning & Deep Learning",
+      "Statistical Modeling (GLM, LASSO, Mixed Models)",
+      "Reinforcement Learning & Generative Models"
+    ]
+  },
+  "projects": [
+    {
+      "id": "",
+      "title": "",
+      "date": "",
+      "tags": ["Generative Models", "Reinforcement Learning", "PyTorch"],
+      "abstract": "",
+      "pdf": "files/pong-gpt-report.pdf",
+      "code_url": "https://github.com/reecefannon/pong-gpt",
+      "thumbnail": "imgs/pong.png",
+      "details": ""
+    },
+    {
+      "id": "",
+      "title": "",
+      "date": "",
+      "tags": ["Statistics", "GLM", "Biology"],
+      "abstract": "",
+      "pdf": "files/candida-hyphae-report.pdf",
+      "code_url": "https://github.com/reecefannon/candida-glm",
+      "thumbnail": "imgs/something.jpg"
+      "details": "<p>Analyzed <i>Candida albicans</i> hypha formation under various <i>Aloe arborescens</i> treatments using a binomial GLM. Developed custom contrasts to assess specific treatment effects with 95% confidence intervals.</p>"
+    }
+  ]
+}
