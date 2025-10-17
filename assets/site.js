@@ -13,7 +13,7 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   async function load() {
-    const res = await fetch('data/projects.json', {cache: 'no-store'});
+    const res = await fetch('data/portfolio.json', {cache: 'no-store'});
     if (!res.ok) throw new Error('Failed to load data/projects.json');
     return res.json();
   }
