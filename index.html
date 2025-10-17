@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home · Your Name</title>
+  <meta name="description" content="Projects, reports, and notes" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Your Name</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="#projects" id="projects-link">Projects</a>
+      <a href="about.html">About</a>
+      <a href="mailto:you@example.com">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Hi, I'm Your Name</h1>
+      <p class="lede">Graduate student in Statistics. I build models, write reports, and share practical analytics. This site is generated directly from a <code>data/projects.json</code> file—update the JSON, push, and it's live.</p>
+      <div class="cta-row">
+        <a class="btn" href="#projects">Browse Projects</a>
+        <a class="btn-outline" href="about.html">About Me</a>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <div class="controls">
+          <input id="search" type="search" placeholder="Search projects…" aria-label="Search projects" />
+          <select id="tagFilter" aria-label="Filter by tag">
+            <option value="">All tags</option>
+          </select>
+        </div>
+      </div>
+      <div id="projects-grid" class="grid"></div>
+      <p id="empty-state" class="empty hidden">No projects matched your filter.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Your Name · Built with vanilla JS on GitHub Pages (no Jekyll)</small>
+  </footer>
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>
