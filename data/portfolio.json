@@ -1,8 +1,8 @@
 {
   "about": {
     "name": "Reece Fannon",
-    "title": "",
-    "bio": "",
+    "title": "Data Analyst and Math Enthusiast",
+    "bio": "I am a graduate of Miami University with an M.S. in Statistics, where I developed expertise in statistical modeling, machine learning, data analysis, and deep learning. I have a strong interest in mathematics—both theoretical and applied—and enjoy projects that combine quantitative rigor with real-world impact. Skilled in R, Python, and applied data science, I’m seeking opportunities to apply and share my passion for data analytics, mathematical modeling, research, or teaching. I’m motivated by solving complex problems, discovering patterns in data, and communicating insights that drive understanding and innovation.",
     "photo": "imgs/myphoto.jpg",
     "email": "reece.fannon@outlook.com",
     "location": "Sidney, OH, USA",
@@ -11,35 +11,33 @@
       "linkedin": "https://linkedin.com/in/reecefannon"
     },
     "skills": [
-      "R (tidyverse, ggplot2, CARBayes)",
-      "Python (PyTorch, NumPy, SciPy)",
-      "Machine Learning & Deep Learning",
-      "Statistical Modeling (GLM, LASSO, Mixed Models)",
-      "Reinforcement Learning & Generative Models"
+      "R",
+      "Python",
+      "Machine Learning",
+      "Deep Learning",
+      "Statistical Modeling"
     ]
   },
   "projects": [
     {
-      "id": "",
-      "title": "",
-      "date": "",
-      "tags": ["Generative Models", "Reinforcement Learning", "PyTorch"],
-      "abstract": "",
-      "file": "files/pong-gpt-report.html",
-      "code_url": "https://github.com/reecefannon/pong-gpt",
-      "thumbnail": "imgs/pong.png",
-      "details": ""
+      "id": "blood-pressure",
+      "title": "Comparative Analysis of Effectiveness of Three Systolic Blood Pressure Medications",
+      "author": "Reece Fannon",
+      "date": "14 September 2024",
+      "abstract": "<p>This report presents an analysis comparing the effectiveness of three different drugs in reducing systolic blood pressure (SBP). Twelve subjects were each assigned one of three SBP medications, and their SBP was recorded both before and after the treatment period. An Analysis of Covariance (ANCOVA) model is used to evaluate the relative effectiveness of each drug while accounting for initial SBP levels. Additionally, a permutation test is conducted to assess whether subjects were randomly assigned to treatments. The report concludes with a discussion of the limitations inherent to small-sample studies and the challenges posed by limited experimental information.</p>",
+      "file": "files/Systolic%20Blood%20Pressure%20Medications.html",
+      "code_url": "https://github.com/reecefannon/blood-pressure",
+      "thumbnail": "imgs/heart.png"
     },
     {
-      "id": "",
-      "title": "",
-      "date": "",
-      "tags": ["Statistics", "GLM", "Biology"],
-      "abstract": "",
-      "file": "files/candida-hyphae-report.html",
-      "code_url": "https://github.com/reecefannon/candida-glm",
-      "thumbnail": "imgs/something.jpg"
-      "details": "<p>Analyzed <i>Candida albicans</i> hypha formation under various <i>Aloe arborescens</i> treatments using a binomial GLM. Developed custom contrasts to assess specific treatment effects with 95% confidence intervals.</p>"
+      "id": "gas-consumption",
+      "title": "Estimating Total Gas Consumption of Miami University Commuters",
+      "author": "Reece Fannon & Nick Baroun",
+      "date": "11 October 2024",
+      "abstract": "<p>This report estimates the total mileage and gasoline consumption of commuters to Miami University Oxford, Ohio campus. The estimates were derived from survey results of students, staff and faculty applying for parking permits using the Universities parking permit portal. Due to the nature of the survey responses and the requirement that all identifying information being removed from the data (such as names, addresses, vehicle make and model), many assumptions had to be made to give fair but still accurate estimates aligned with the University's goals of reducing net emissions.</p>",
+      "file": "files/MU%20Commuter%20Gas%20Consumption.html",
+      "code_url": "https://github.com/reecefannon/gas-consumption",
+      "thumbnail": "imgs/gasoline.png"
     }
   ]
 }
