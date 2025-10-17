@@ -34,10 +34,20 @@
       "title": "Estimating Total Gas Consumption of Miami University Commuters",
       "author": "Reece Fannon & Nick Baroun",
       "date": "11 October 2024",
-      "abstract": "<p>This report estimates the total mileage and gasoline consumption of commuters to Miami University Oxford, Ohio campus. The estimates were derived from survey results of students, staff and faculty applying for parking permits using the Universities parking permit portal. Due to the nature of the survey responses and the requirement that all identifying information being removed from the data (such as names, addresses, vehicle make and model), many assumptions had to be made to give fair but still accurate estimates aligned with the University's goals of reducing net emissions.</p>",
+      "abstract": "<p>This report estimates the total mileage and gasoline consumption of commuters to Miami University Oxford, Ohio campus. The estimates were derived from survey results of students, staff and faculty applying for parking permits using the Universities parking permit portal. Due to the nature of the survey responses and the requirement that all identifying information being removed from the data (such as names, addresses, vehicle make and model), many assumptions had to be made to give fair but still accurate estimates aligned with the University's goals of reducing net emissions. This project highlights the necessity of making assumptions and how these assumptions can affect the results of an analysis, as well as some subtleties when estimating totals, as opposed to means.</p>",
       "file": "files/MU%20Commuter%20Gas%20Consumption.html",
       "code_url": "https://github.com/reecefannon/gas-consumption",
       "thumbnail": "imgs/gasoline.png"
+    },
+    {
+      "id": "fungal-morphogenesis",
+      "title": "Inhibition of Hyphal Formation in Candida albicans by Aloe aborescens-Derived Compounds",
+      "author": "Reece Fannon",
+      "date": "6 November 2024",
+      "abstract": "<p>This report addresses several hypotheses concerning the anti-fungal properties of various compounds derived from <i>Aloe aborescens</i>. Petri dishes of <i>Candida albicans</i>, a common fungal pathogen that can cause yeast infections, were exposed natural aloe-based or artifical, commercially sourced compounds, and the counts of cells exhibiting various morphological structures were counted. Of interest to us were the effects on <i>hyphae</i>. A quasi-binomial model was used to conduct hypothesis tests using contrasts.</p>",
+      "file": "files/Fungal%20Morphogenesis%20Study.html",
+      "code_url": "https://github.com/reecefannon/fungal-morphogenesis",
+      "thumbnail": "imgs/aloe.jpeg"
     }
   ]
 }
