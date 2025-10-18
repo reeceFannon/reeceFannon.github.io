@@ -48,6 +48,16 @@
       "file": "files/Fungal%20Morphogenesis%20Study.html",
       "code_url": "https://github.com/reecefannon/fungal-morphogenesis",
       "thumbnail": "imgs/aloe.jpeg"
+    },
+    {
+      "id": "lakes-icecover",
+      "title": "Investigating Trends in the Last 50 Years of Ice Coverage at the Great Lakes",
+      "author": "Reece Fannon & Colin Smith",
+      "date": "20 November 2024",
+      "abstract": "<p>This report investigates whether ice coverage of the Great Lakes surface water has experienced a significant deline over the past 50 years. We estimate the trend line of the annual cumulative ice cover ratios (CICR) from ice cover percentage data, gathered by the Great Lakes Environmental Research Laboratory (GLERL) starting from 1973, using a non-parametric Theil-Sen line estimator. Our choice of the annual CICR differs from the use of annual maximum coverage reported by GLERL and illustrates the nuance in selecting an appropriate unit of measure for performing an analysis.</p>",
+      "file": "files/Great%20Lakes%20Ice%20Coverage.html",
+      "code_url": "https://github.com/reecefannon/lakes-icecover",
+      "thumbnail": "imgs/greatlakes.jpeg"
     }
   ]
 }
