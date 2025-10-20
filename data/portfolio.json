@@ -58,6 +58,16 @@
       "file": "files/Great%20Lakes%20Ice%20Coverage.html",
       "code_url": "https://github.com/reecefannon/lakes-icecover",
       "thumbnail": "imgs/greatlakes.jpeg"
+    },
+    {
+      "id": "traffic-stops",
+      "title": "Analysis of Racial Disparities in Stops and Searches by the Louisville Metro Police Department",
+      "author": "Reece Fannon & Viren Gadkari",
+      "date": "12 December 2024",
+      "abstract": "<p>This project was originally a presentation, which I rebuilt using <i>Quarto</i>. I added text-heavy slides to act as a substitute for the verbal component of the presentation. This project investigates racial disparities in traffic stops and searches conducted by the Louisville Metro Police Department (LMPD) in 2021 and 2022 using a spatial conditional autoregressive (CAR) model.</p>",
+      "file": "files/LMPD%Traffic%Stops.html",
+      "code_url": "https://github.com/reecefannon/traffic-stops",
+      "thumbnail": "imgs/police.jpeg"
     }
   ]
 }
