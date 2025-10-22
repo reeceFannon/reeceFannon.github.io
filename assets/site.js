@@ -3,7 +3,7 @@
    Expects JSON at data/profile.json with { about: {...}, projects: [...] }
 */
 (function () {
-  const JSON_PATH = "data/profile.json";
+  const JSON_PATH = "data/portfolio.json";
 
   const byId = (id) => document.getElementById(id);
 
