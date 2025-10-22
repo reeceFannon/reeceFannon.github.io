@@ -50,7 +50,7 @@
       "tags": ["Data Analysis", "Experiment", "Contrasts", "GLM", "Hypothesis Testing"],
       "file": "files/Fungal%20Morphogenesis%20Study.html",
       "code_url": "https://github.com/reecefannon/fungal-morphogenesis",
-      "thumbnail": "imgs/aloe.jpeg"
+      "thumbnail": "imgs/aloe.png"
     },
     {
       "id": "lakes-icecover",
@@ -61,7 +61,7 @@
       "tags": ["Data Analysis", "Time Series", "Regression", "Non-Parametric", "Measurement Selection"],
       "file": "files/Great%20Lakes%20Ice%20Coverage.html",
       "code_url": "https://github.com/reecefannon/lakes-icecover",
-      "thumbnail": "imgs/greatlakes.jpeg"
+      "thumbnail": "imgs/greatlakes.png"
     },
     {
       "id": "traffic-stops",
@@ -72,7 +72,7 @@
       "tags": ["Data Analysis", "Bayesian", "Spatial", "Spatial Regression", "CAR"],
       "file": "files/LMPD%20Traffic%20Stops.html",
       "code_url": "https://github.com/reecefannon/traffic-stops",
-      "thumbnail": "imgs/police.jpeg"
+      "thumbnail": "imgs/police.png"
     }
   ]
 }
