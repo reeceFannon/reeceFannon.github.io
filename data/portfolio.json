@@ -25,6 +25,7 @@
       "author": "Reece Fannon",
       "date": "14 September 2024",
       "abstract": "<p>This report presents an analysis comparing the effectiveness of three different drugs in reducing systolic blood pressure (SBP). Twelve subjects were each assigned one of three SBP medications, and their SBP was recorded both before and after the treatment period. An Analysis of Covariance (ANCOVA) model is used to evaluate the relative effectiveness of each drug while accounting for initial SBP levels. Additionally, a permutation test is conducted to assess whether subjects were randomly assigned to treatments. The report concludes with a discussion of the limitations inherent to small-sample studies and the challenges posed by limited experimental information.</p>",
+      "tags": ["Data Analysis", "Experimental Design", "ANOVA", "ANCOVA", "Permutation Test", "Small Sample"],
       "file": "files/Systolic%20Blood%20Pressure%20Medications.html",
       "code_url": "https://github.com/reecefannon/blood-pressure",
       "thumbnail": "imgs/heart.png"
@@ -35,6 +36,7 @@
       "author": "Reece Fannon & Nick Baroun",
       "date": "11 October 2024",
       "abstract": "<p>This report estimates the total mileage and gasoline consumption of commuters to Miami University Oxford, Ohio campus. The estimates were derived from survey results of students, staff and faculty applying for parking permits using the Universities parking permit portal. Due to the nature of the survey responses and the requirement that all identifying information being removed from the data (such as names, addresses, vehicle make and model), many assumptions had to be made to give fair but still accurate estimates aligned with the University's goals of reducing net emissions. This project highlights the necessity of making assumptions and how these assumptions can affect the results of an analysis, as well as some subtleties when estimating totals, as opposed to means.</p>",
+      "tags": ["Data Analysis", "Survey", "Estimation", "Confidence Intervals", "Assumptions"],
       "file": "files/MU%20Commuter%20Gas%20Consumption.html",
       "code_url": "https://github.com/reecefannon/gas-consumption",
       "thumbnail": "imgs/gasoline.png"
@@ -45,6 +47,7 @@
       "author": "Reece Fannon",
       "date": "6 November 2024",
       "abstract": "<p>This report addresses several hypotheses concerning the anti-fungal properties of various compounds derived from <i>Aloe aborescens</i>. Petri dishes of <i>Candida albicans</i>, a common fungal pathogen that can cause yeast infections, were exposed natural aloe-based or artifical, commercially sourced compounds, and the counts of cells exhibiting various morphological structures were counted. Of interest to us were the effects on <i>hyphae</i>. A quasi-binomial model was used to conduct hypothesis tests using contrasts.</p>",
+      "tags": ["Data Analysis", "Experiment", "Contrasts", "GLM", "Hypothesis Testing"],
       "file": "files/Fungal%20Morphogenesis%20Study.html",
       "code_url": "https://github.com/reecefannon/fungal-morphogenesis",
       "thumbnail": "imgs/aloe.jpeg"
@@ -55,16 +58,18 @@
       "author": "Reece Fannon & Colin Smith",
       "date": "20 November 2024",
       "abstract": "<p>This report investigates whether ice coverage of the Great Lakes surface water has experienced a significant deline over the past 50 years. We estimate the trend line of the annual cumulative ice cover ratios (CICR) from ice cover percentage data, gathered by the Great Lakes Environmental Research Laboratory (GLERL) starting from 1973, using a non-parametric Theil-Sen line estimator. Our choice of the annual CICR differs from the use of annual maximum coverage reported by GLERL and illustrates the nuance in selecting an appropriate unit of measure for performing an analysis.</p>",
+      "tags": ["Data Analysis", "Time Series", "Regression", "Non-Parametric", "Measurement Selection"],
       "file": "files/Great%20Lakes%20Ice%20Coverage.html",
       "code_url": "https://github.com/reecefannon/lakes-icecover",
       "thumbnail": "imgs/greatlakes.jpeg"
     },
     {
       "id": "traffic-stops",
-      "title": "Analysis of Racial Disparities in Stops and Searches by the Louisville Metro Police Department",
+      "title": "Beat Level Analysis of Racial Disparities in Stops and Searches by the Louisville Metro Police Department",
       "author": "Reece Fannon & Viren Gadkari",
       "date": "12 December 2024",
       "abstract": "<p>This project was originally a presentation, which I rebuilt using <i>Quarto</i>. I added text-heavy slides to act as a substitute for the verbal component of the presentation. This project investigates racial disparities in traffic stops and searches conducted by the Louisville Metro Police Department (LMPD) in 2021 and 2022 using a spatial conditional autoregressive (CAR) model.</p>",
+      "tags": ["Data Analysis", "Bayesian", "Spatial", "Spatial Regression", "CAR"],
       "file": "files/LMPD%Traffic%Stops.html",
       "code_url": "https://github.com/reecefannon/traffic-stops",
       "thumbnail": "imgs/police.jpeg"
