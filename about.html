@@ -3,36 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About · Your Name</title>
+  <title>About · Reece Fannon</title>
   <link rel="stylesheet" href="assets/style.css" />
   <link rel="icon" href="data:,">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">Your Name</a>
+    <a class="brand" href="index.html">Reece Fannon</a>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="index.html#projects">Projects</a>
       <a class="active" href="about.html">About</a>
     </nav>
   </header>
+
   <main class="container prose">
-    <h1>About</h1>
-    <p>Replace this with a short bio. Mention your program (M.S. in Statistics), interests (RL, generative modeling), and tools (R, Python, PyTorch, tidyverse).</p>
-    <h2>Skills</h2>
-    <ul>
-      <li>Statistical Modeling, GLM/GLMM, LASSO</li>
-      <li>Machine Learning &amp; Deep Learning (PyTorch)</li>
-      <li>Data Visualization (ggplot2, matplotlib)</li>
-      <li>Reinforcement Learning &amp; Generative Models</li>
-    </ul>
-    <p>Contact: <a href="mailto:you@example.com">you@example.com</a> · <a href="https://github.com/yourhandle">GitHub</a> · <a href="https://www.linkedin.com/in/your-handle">LinkedIn</a></p>
+    <section id="about-section">
+      <img id="about-full-photo" class="avatar-lg" alt="" />
+      <h1 id="about-full-name"></h1>
+      <p class="subtle" id="about-full-title"></p>
+      <p id="about-full-bio"></p>
+
+      <p><strong>Location:</strong> <span id="about-location"></span></p>
+      <p><strong>Email:</strong> <span id="about-email"></span></p>
+
+      <p id="about-links"></p>
+
+      <h2>Skills</h2>
+      <ul id="skills-list"></ul>
+    </section>
   </main>
+
   <footer class="site-footer">
-    <small>© <span id="year"></span> Your Name</small>
+    <small>© <span id="year"></span> Reece Fannon</small>
   </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
