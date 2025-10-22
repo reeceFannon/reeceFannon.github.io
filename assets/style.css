@@ -37,69 +37,55 @@ img{max-width:100%; display:block}
   background: var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:8px 10px
 }
 .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin-top: 16px}
-.card{background: var(--card); border:1px solid var(--border); border-radius: 14px; overflow:hidden; display:flex; flex-direction:column}
+.card{background: var(--card); border:1px solid var(--border); border-radius: 14px; overflow:hidden; display:flex; flex-direction:column; --clamp-lines: 4;}
 .thumb{aspect-ratio: 16/9; background: #0e1117; display:flex; align-items:center; justify-content:center; color:#8a8f98; font-size:14px}
-.card-body{padding: 14px}
+.card-body{padding: 14px; position: relative;}
 .card h3{margin:0 0 6px; font-size: 18px}
 .meta{color: var(--muted); font-size: 12px; margin-bottom: 8px}
 .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
 .tag{font-size: 11px; color: var(--accent); border:1px solid var(--border); padding:2px 8px; border-radius:999px; background:#0f1218}
-.card-actions{margin-top:auto; display:flex; gap:10px; padding: 0 14px 14px}
+.card-actions{margin-top:auto; display:flex; gap:10px; padding: 0 14px 14px; flex-wrap: wrap;}
 .card-actions a{border:1px solid var(--border); border-radius: 8px; padding:6px 10px}
-.empty{color: var(--muted); text-align:center; margin: 30px 0}
-.hidden{display:none}
 
+/* --- CLAMPED CARD DESCRIPTIONS --- */
+.card .desc{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp: var(--clamp-lines);
+  overflow:hidden;
+  margin:0 0 8px;
+}
+.card .desc.expanded{ -webkit-line-clamp: unset; display:block; overflow:visible; }
+
+/* gradient fade at the bottom when clamped */
+.card .fade{
+  position:absolute;
+  left:14px; right:14px;
+  bottom:44px;
+  height:3em;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--card) 70%);
+  pointer-events:none;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  display:none;
+}
+
+/* read more button */
+.read-more{
+  border:1px solid var(--border);
+  background:#0f1218;
+  border-radius:8px;
+  padding:6px 10px;
+  font:inherit;
+  color:var(--text);
+  cursor:pointer;
+}
+.read-more.hidden{ display:none; }
+
+/* Article page */
 .project-article{background: var(--card); border:1px solid var(--border); border-radius:14px; padding: 18px}
 .project-article h1{margin-top:0}
 .prose p{color:var(--text)}
 
-/* --- CLAMPED CARD DESCRIPTIONS --- */
-.card-body { position: relative; }
-
-/* how many lines to show by default (tweak per your taste) */
-.card { --clamp-lines: 4; }
-
-/* clamp using line-clamp (modern Safari/Chromium/Firefox) */
-.card .desc {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--clamp-lines);
-  overflow: hidden;
-  margin: 0 0 8px;
-}
-
-/* when expanded, un-clamp */
-.card .desc.expanded {
-  -webkit-line-clamp: unset;
-  display: block;
-  overflow: visible;
-}
-
-/* gradient fade at the bottom when clamped */
-.card .fade {
-  position: absolute;
-  left: 14px; right: 14px; /* match .card-body padding */
-  bottom: 44px;            /* leaves space for buttons */
-  height: 3em;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--card) 70%);
-  pointer-events: none;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  display: none; /* toggled by JS when clamped */
-}
-
-/* the action button */
-.read-more {
-  border: 1px solid var(--border);
-  background: #0f1218;
-  border-radius: 8px;
-  padding: 6px 10px;
-  font: inherit;
-  color: var(--text);
-  cursor: pointer;
-}
-
-.read-more.hidden { display: none; }
-
-/* ensure actions row stays at bottom nicely */
-.card-actions { display:flex; gap:10px; padding: 0 14px 14px; flex-wrap: wrap; }
+.avatar{width:84px; height:84px; border-radius:999px; object-fit:cover; border:1px solid var(--border);}
+.avatar-lg{width:144px; height:144px; border-radius:999px; object-fit:cover; border:1px solid var(--border);}
