@@ -127,6 +127,7 @@
           <div class="card-body">
             <h3><a href="${detail}">${safe(p.title)}</a></h3>
             <div class="meta">${dateStr}${p.author ? (dateStr ? " · " : "") + safe(p.author) : ""}</div>
+            <div class="tags">${tags}</div>
             <p class="desc" id="${descId}">${safe(p.abstract)}</p>
             <div class="fade" aria-hidden="true"></div>
             <div class="card-actions">
