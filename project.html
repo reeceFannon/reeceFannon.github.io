@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="docTitle">Project · Your Name</title>
+  <title>Project · Reece Fannon</title>
+  <meta name="description" content="Project details · Reece Fannon" />
   <link rel="stylesheet" href="assets/style.css" />
   <link rel="icon" href="data:,">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">Your Name</a>
+    <a class="brand" href="index.html">Reece Fannon</a>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="index.html#projects">Projects</a>
@@ -18,20 +19,25 @@
   </header>
 
   <main class="container">
+    <!-- Filled by assets/site.js (renderProjectDetail) -->
     <article id="project" class="project-article">
       <p>Loading…</p>
     </article>
+
+    <!-- Optional back link -->
+    <p style="margin-top:16px"><a href="index.html#projects">← Back to Projects</a></p>
   </main>
 
   <footer class="site-footer">
-    <small>© <span id="year"></span> Your Name</small>
+    <small>© <span id="year"></span> Reece Fannon</small>
   </footer>
 
   <script src="assets/site.js"></script>
   <script>
+    // Set footer year immediately
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Kick off render for detail page
-    window.renderProjectDetail && window.renderProjectDetail();
+    // site.js exposes render function; it runs automatically as part of init().
+    // If you ever want to force re-render here, you could call it again (not necessary).
   </script>
 </body>
 </html>
