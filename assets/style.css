@@ -37,9 +37,9 @@ img{max-width:100%; display:block}
   background: var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:8px 10px
 }
 .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin-top: 16px}
-.card{background: var(--card); border:1px solid var(--border); border-radius: 14px; overflow:hidden; display:flex; flex-direction:column; --clamp-lines: 5;}
+.card{background: var(--card); border:1px solid var(--border); border-radius: 14px; overflow:hidden; display:flex; flex-direction:column; --clamp-lines: 5; --actions-h: 58px;}
 .thumb{aspect-ratio: 16/9; background: #0e1117; display:flex; align-items:center; justify-content:center; color:#8a8f98; font-size:14px}
-.card-body{padding: 14px; padding-bottom: 72px; position: relative;}
+.card-body{padding: 14px; padding-bottom: calc(var(--actions-h) + 14px); position: relative;}
 .card h3{margin:0 0 6px; font-size: 18px}
 .meta{color: var(--muted); font-size: 12px; margin-bottom: 8px}
 .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
@@ -61,7 +61,7 @@ img{max-width:100%; display:block}
 .card .fade{
   position:absolute;
   left:14px; right:14px;
-  bottom:72px;
+  bottom:calc(var(--actions-h) + 14px);
   height:3em;
   background:linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--card) 70%);
   pointer-events:none;
