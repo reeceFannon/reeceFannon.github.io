@@ -39,35 +39,36 @@ img{max-width:100%; display:block}
 .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin-top: 16px}
 .card{background: var(--card); border:1px solid var(--border); border-radius: 14px; overflow:hidden; display:flex; flex-direction:column; --clamp-lines: 5;}
 .thumb{aspect-ratio: 16/9; background: #0e1117; display:flex; align-items:center; justify-content:center; color:#8a8f98; font-size:14px}
-.card-body{padding: 14px; position: relative;}
+.card-body{padding: 14px; padding-bottom: 72px; position: relative;}
 .card h3{margin:0 0 6px; font-size: 18px}
 .meta{color: var(--muted); font-size: 12px; margin-bottom: 8px}
 .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
 .tag{font-size: 11px; color: var(--accent); border:1px solid var(--border); padding:2px 8px; border-radius:999px; background:#0f1218}
-.card-actions{margin-top:auto; display:flex; gap:10px; padding: 0 14px 14px; flex-wrap: wrap;}
-.card-actions a{border:1px solid var(--border); border-radius: 8px; padding:6px 10px}
+.card-actions{position: absolute; left: 14px; right: 14px; bottom: 14px; display: flex; gap: 10px; flex-wrap: wrap; z-index: 2;}
+.card-actions a{border:1px solid var(--border); border-radius: 8px; padding:6px 10px;}
 
 /* --- CLAMPED CARD DESCRIPTIONS --- */
 .card .desc{
   display:-webkit-box;
-  -webkit-box-orient:vertical;
+  -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--clamp-lines);
   overflow:hidden;
   margin:0 0 8px;
 }
-.card .desc.expanded{ -webkit-line-clamp: unset; display:block; overflow:visible; }
+.card .desc.expanded{ -webkit-line-clamp: unset; display: block; overflow: visible; }
 
 /* gradient fade at the bottom when clamped */
 .card .fade{
   position:absolute;
   left:14px; right:14px;
-  bottom:44px;
+  bottom:72px;
   height:3em;
   background:linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--card) 70%);
   pointer-events:none;
   border-bottom-left-radius:10px;
   border-bottom-right-radius:10px;
   display:none;
+  z-index: 1;
 }
 
 /* read more button */
