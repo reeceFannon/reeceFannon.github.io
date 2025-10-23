@@ -64,18 +64,40 @@
 
   function renderAbout(data) {
     if (!data?.about) return;
-    const { name, title, bio, photo, email, location, social, skills } = data.about;
+    const { name, title, bio, photo, email, location, social } = data.about;
 
+    const heroPhoto = byId("about-photo");
     const heroName = byId("about-name");
     const heroTitle = byId("about-title");
+    const heroLoc = byId("about-location");
+    const heroEmail = byId("about-email");
+    const heroSocial = byId("about-social");
     const heroBio = byId("about-bio");
-    const heroPhoto = byId("about-photo");
-    const heroSkills = byId("skills-inline");
     if (heroName) heroName.textContent = name || "";
     if (heroTitle) heroTitle.textContent = title || "";
+    if (heroLoc) heroLoc.textContent = location || "";
     if (heroBio) heroBio.innerHTML = bio || "";
-    if (heroPhoto && photo){ heroPhoto.src = photo; heroPhoto.alt = name ? `${name} photo` : "Profile photo"; }
-    if (heroSkills && Array.isArray(skills)) heroSkills.innerHTML = skills.map(s=>`<span class="tag">${s}</span>`).join(" ");
+    if (heroPhoto && photo){heroPhoto.src = photo; heroPhoto.alt = name ? `${name} photo` : "Profile photo";}
+    if (heroEmail){heroEmail.innerHTML = email ? `<a href="mailto:${email}">${email}</a>` : "";}
+    if (heroSocial){
+      const items = [];
+
+      if (social?.github){
+        items.push(
+          `<a class="icon-link" href="${social.github}" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="imgs/github.svg" alt="GitHub" />
+          </a>`
+        );
+      }
+
+      if (social?.linkedin){
+        items.push(
+          `<a class="icon-link" href="${social.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="imgs/linkedin.svg" alt="LinkedIn" />
+          </a>`
+        );
+      }
+    }
   }
 
   function renderProjectsList(projects) {

@@ -11,13 +11,20 @@
 <body>
   <main class="container">
     <!-- Hero/About content is filled by assets/site.js from data/profile.json -->
-    <section class="hero">
+    <section class="home-header container">
       <img id="about-photo" class="avatar" alt="" />
-      <h1 id="about-name">Loading…</h1>
-      <p class="subtle" id="about-title"></p>
-      <p class="lede" id="about-bio"></p>
-      <div id="skills-inline" class="tags"></div>
+
+      <div class="home-meta">
+        <h1 id="about-name" class="home-name">Loading…</h1>
+        <div id="about-title" class="home-title"></div>
+        <div id="about-location" class="home-location"></div>
+        <div id="about-email" class="home-email"></div>
+
+        <!-- Social icons (GitHub/LinkedIn) will be injected here -->
+        <div id="about-social" class="home-links" aria-label="Social links"></div>
+      </div>
     </section>
+
 
     <section id="projects" class="projects-section">
       <div class="section-head">
