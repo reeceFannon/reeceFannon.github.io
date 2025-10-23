@@ -76,28 +76,6 @@
     if (heroBio) heroBio.innerHTML = bio || "";
     if (heroPhoto && photo){ heroPhoto.src = photo; heroPhoto.alt = name ? `${name} photo` : "Profile photo"; }
     if (heroSkills && Array.isArray(skills)) heroSkills.innerHTML = skills.map(s=>`<span class="tag">${s}</span>`).join(" ");
-
-    const aboutName = byId("about-full-name");
-    const aboutTitle = byId("about-full-title");
-    const aboutBio = byId("about-full-bio");
-    const aboutPhoto = byId("about-full-photo");
-    const aboutSkills = byId("skills-list");
-    const aboutEmail = byId("about-email");
-    const aboutLoc = byId("about-location");
-    const aboutLinks = byId("about-links");
-    if (aboutName) aboutName.textContent = name || "";
-    if (aboutTitle) aboutTitle.textContent = title || "";
-    if (aboutBio) aboutBio.innerHTML = bio || "";
-    if (aboutPhoto && photo){ aboutPhoto.src = photo; aboutPhoto.alt = name ? `${name} photo` : "Profile photo"; }
-    if (aboutSkills && Array.isArray(skills)) aboutSkills.innerHTML = skills.map(s=>`<li>${s}</li>`).join("");
-    if (aboutEmail && email) aboutEmail.innerHTML = `<a href="mailto:${email}">${email}</a>`;
-    if (aboutLoc && location) aboutLoc.textContent = location;
-    if (aboutLinks && social){
-      const links=[];
-      if (social.github) links.push(`<a href="${social.github}" target="_blank" rel="noopener">GitHub</a>`);
-      if (social.linkedin) links.push(`<a href="${social.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`);
-      aboutLinks.innerHTML = links.join(" · ");
-    }
   }
 
   function renderProjectsList(projects) {
