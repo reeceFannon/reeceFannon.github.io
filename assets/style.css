@@ -15,7 +15,9 @@ a{color:var(--accent); text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%; display:block}
 
-.container{max-width: 980px; margin: 0 auto; padding: 24px}
+.container{max-width: 980px; margin: 0 auto; padding: 16px}
+.hero-header{background: var(--card); border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); padding-top: 1.5rem; padding-bottom: 1.5rem;}
+.hero-header .home-header{margin-bottom: 1rem;}
 .home-header{display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; margin-top: 18px; margin-bottom: 24px;}
 .home-meta{display: grid; gap: 6px; align-content: start;}
 .home-name{font-weight: 800; margin: 0; line-height: 1.15; font-size: clamp(1.6rem, 2.2vw + 1rem, 2.25rem); color: var(--text);}
@@ -34,9 +36,7 @@ img{max-width:100%; display:block}
 .lede{color: var(--muted); max-width: 70ch}
 .section-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
 .controls{display:flex; gap:8px}
-.controls input, .controls select{
-  background: var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:8px 10px
-}
+.controls input, .controls select{background: var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:8px 10px;}
 .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin-top: 16px}
 .card{background: var(--card); border:1px solid var(--border); border-radius: 14px; overflow:hidden; display:flex; flex-direction:column; --clamp-lines: 5; --actions-h: 66px;}
 .thumb{aspect-ratio: 16/9; background: #0e1117; display:flex; align-items:center; justify-content:center; color:#8a8f98; font-size:14px}
@@ -47,44 +47,12 @@ img{max-width:100%; display:block}
 .tag{font-size: 11px; color: var(--accent); border:1px solid var(--border); padding:2px 8px; border-radius:999px; background:#0f1218}
 .card-actions{position: absolute; left: 14px; right: 14px; bottom: 14px; display: flex; gap: 10px; flex-wrap: wrap; z-index: 2;}
 .card-actions a{border:1px solid var(--border); border-radius: 8px; padding:6px 10px;}
-
-/* --- CLAMPED CARD DESCRIPTIONS --- */
-.card .desc{
-  display:-webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--clamp-lines);
-  overflow:hidden;
-  margin:0 0 8px;
-}
-.card .desc.expanded{ -webkit-line-clamp: unset; display: block; overflow: visible; }
-
-/* gradient fade at the bottom when clamped */
-.card .fade{
-  position:absolute;
-  left:14px; right:14px;
-  bottom:calc(var(--actions-h) + 14px);
-  height:3em;
-  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--card) 70%);
-  pointer-events:none;
-  border-bottom-left-radius:10px;
-  border-bottom-right-radius:10px;
-  display:none;
-  z-index: 1;
-}
-
-/* read more button */
-.read-more{
-  border:1px solid var(--border);
-  background:#0f1218;
-  border-radius:8px;
-  padding:6px 10px;
-  font:inherit;
-  color:var(--text);
-  cursor:pointer;
-}
+.card .desc{display:-webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--clamp-lines); overflow:hidden; margin:0 0 8px;}
+.card .desc.expanded{-webkit-line-clamp: unset; display: block; overflow: visible;}
+.card .fade{position:absolute; left:14px; right:14px; bottom:calc(var(--actions-h) + 14px); height:3em; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--card) 70%); pointer-events:none; border-bottom-left-radius:10px; border-bottom-right-radius:10px; display:none; z-index: 1;}
+.read-more{border:1px solid var(--border); background:#0f1218; border-radius:8px; padding:6px 10px; font:inherit; color:var(--text); cursor:pointer;}
 .read-more.hidden{ display:none; }
 
-/* Article page */
 .project-article{background: var(--card); border:1px solid var(--border); border-radius:14px; padding: 18px}
 .project-article h1{margin-top:0}
 .prose p{color:var(--text)}

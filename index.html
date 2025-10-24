@@ -9,9 +9,8 @@
   <link rel="icon" href="data:,">
 </head>
 <body>
-  <main class="container">
-    <!-- Hero/About content is filled by assets/site.js from data/profile.json -->
-    <section class="home-header container">
+  <header class="site-header">
+    <div class="home-header container">
       <img id="about-photo" class="avatar" alt="" />
 
       <div class="home-meta">
@@ -23,8 +22,10 @@
         <!-- Social icons (GitHub/LinkedIn) will be injected here -->
         <div id="about-social" class="home-links" aria-label="Social links"></div>
       </div>
-    </section>
-
+    </div>
+  </header>
+  
+  <main class="container">
     <section class="container">
       <p id="about-bio" class="lede"></p>
     </section>
