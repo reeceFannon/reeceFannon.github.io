@@ -97,6 +97,8 @@
           </a>`
         );
       }
+
+      heroSocial.innerHTML = items.join("") || "";
     }
   }
 

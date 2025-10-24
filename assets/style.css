@@ -89,5 +89,5 @@ img{max-width:100%; display:block}
 .project-article h1{margin-top:0}
 .prose p{color:var(--text)}
 
-.avatar{width:84px; height:84px; border-radius:999px; object-fit:cover; border:1px solid var(--border);}
+.avatar{width:144px; height:144px; border-radius:999px; object-fit:cover; border:1px solid var(--border);}
 .avatar-lg{width:144px; height:144px; border-radius:999px; object-fit:cover; border:1px solid var(--border);}
