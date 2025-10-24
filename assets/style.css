@@ -16,8 +16,8 @@ a:hover{text-decoration:underline}
 img{max-width:100%; display:block}
 
 .container{max-width: 980px; margin: 0 auto; padding: 16px}
-.hero-header{background: var(--card); border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); padding-top: 1.5rem; padding-bottom: 1.5rem;}
-.hero-header .home-header{margin-bottom: 1rem;}
+.site-header{background: var(--card); border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); padding-top: 1.5rem; padding-bottom: 1.5rem;}
+.site-header .home-header{margin-bottom: 1rem;}
 .home-header{display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; margin-top: 18px; margin-bottom: 24px;}
 .home-meta{display: grid; gap: 6px; align-content: start;}
 .home-name{font-weight: 800; margin: 0; line-height: 1.15; font-size: clamp(1.6rem, 2.2vw + 1rem, 2.25rem); color: var(--text);}
