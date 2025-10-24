@@ -116,29 +116,43 @@
     }
 
     function cardHTML(p){
-      const thumb = p.thumbnail ? `<img class="thumb" src="${p.thumbnail}" alt="">` : `<div class="thumb">No image</div>`;
+      const thumb = p.thumbnail ? `<img class="thumb" src="${p.thumbnail}" alt="">`
+                                : `<div class="thumb" style="display:flex;align-items:center;justify-content:center;color:var(--muted);">No image</div>`;
       const dateStr = p.date ? `<span>${fmtDate(p.date)}</span>` : "";
-      const tags = (p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join(" ");
+      const tags = (p.tags || []).map(t => `<span class="tag">${t}</span>`).join(" ");
       const detail = `project.html?id=${encodeURIComponent(p.id)}`;
       const reportBtn = p.file ? `<a href="${p.file}" target="_blank" rel="noopener">${extLabel(p.file)}</a>` : "";
-      const codeBtn = p.code_url ? `<a href="${p.code_url}" target="_blank" rel="noopener">${extLabel(p.code_url)}</a>` : "";
+      const codeBtn   = p.code_url ? `<a href="${p.code_url}" target="_blank" rel="noopener">${extLabel(p.code_url)}</a>` : "";
       const descId = `desc-${String(p.id).replace(/[^a-z0-9-_]/gi,'')}`;
+
       return `
-        <article class="card">
-          ${thumb}
-          <div class="card-body">
-            <h3><a href="${detail}">${safe(p.title)}</a></h3>
-            <div class="meta">${dateStr}${p.author ? (dateStr ? " · " : "") + safe(p.author) : ""}</div>
+        <article class="card card-h">
+          <div class="card-media">
+            ${thumb}
+          </div>
+
+          <div class="card-main">
+            <h3 class="title"><a href="${detail}">${safe(p.title || "Untitled")}</a></h3>
+            <div class="meta">
+              ${safe(p.author || "")} ${dateStr ? "· " + dateStr : ""}
+            </div>
             <div class="tags">${tags}</div>
-            <p class="desc" id="${descId}">${safe(p.abstract)}</p>
-            <div class="fade" aria-hidden="true"></div>
-            <div class="card-actions">
-              ${reportBtn} ${codeBtn}
-              <button class="read-more" data-target="${descId}" aria-controls="${descId}" aria-expanded="false">Read more</button>
+
+            <div class="desc-wrap">
+              <p id="${descId}" class="desc">${safe(p.abstract || "")}</p>
+              <div class="fade"></div>
+            </div>
+
+            <div class="actions">
+              ${reportBtn}
+              ${codeBtn}
+              <a class="read-more" href="${detail}">Read more</a>
             </div>
           </div>
-        </article>`;
+        </article>
+      `;
     }
+
 
     function applyFilters(){
       const q = (search && search.value.trim()) || "";
