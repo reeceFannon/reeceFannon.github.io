@@ -2,7 +2,7 @@
 :root{
   --bg: #0b0c10;
   --card: #111318;
-  --header: color-mix(in srgb, #000000 50%, #0b0c10);;
+  --header: color-mix(in srgb, #000000 30%, #0b0c10);;
   --footer: #000000;
   --text: #e6e6e6;
   --muted: #a0a0a0;
@@ -63,6 +63,7 @@ img{max-width:100%; display:block}
 .project-desc{margin: 8px 0 10px;}
 .project-actions{display:flex; gap:10px; flex-wrap:wrap; margin: 6px 0 10px;}
 .project-actions .btn, .project-actions a{border:1px solid var(--border); border-radius:8px; padding:6px 10px; text-decoration:none; color:var(--accent); background:transparent;}
+.project-actions a:hover{text-decoration: underline;}
 .prose p{color:var(--text)}
 
 .avatar{width:144px; height:144px; border-radius:999px; object-fit:cover; border:1px solid var(--border);}
