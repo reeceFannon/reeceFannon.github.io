@@ -62,7 +62,7 @@ img{max-width:100%; display:block}
 .project-title{margin: 0 0 6px;}
 .project-desc{margin: 8px 0 10px;}
 .project-actions{display:flex; gap:10px; flex-wrap:wrap; margin: 6px 0 10px;}
-.project-actions .btn, .project-actions a{border:1px solid var(--border); border-radius:8px; padding:6px 10px; text-decoration:none; color:var(--text); background:#0f1218;}
+.project-actions .btn, .project-actions a{border:1px solid var(--border); border-radius:8px; padding:6px 10px; text-decoration:none; color:var(--accent); background:transparent;}
 .prose p{color:var(--text)}
 
 .avatar{width:144px; height:144px; border-radius:999px; object-fit:cover; border:1px solid var(--border);}
