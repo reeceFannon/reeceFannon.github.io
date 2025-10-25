@@ -107,7 +107,6 @@
     if (!grid) return;
     const search = byId("search");
     const tagFilter = byId("tagFilter");
-    const empty = byId("empty-state");
 
     if (tagFilter && tagFilter.options.length <= 1) {
       uniqueSortedTags(projects).forEach((t)=>{
@@ -145,7 +144,6 @@
       const t = (tagFilter && tagFilter.value) || "";
       const filtered = projects.filter(p=>matchesQuery(p,q) && matchesTag(p,t));
       grid.innerHTML = filtered.map(cardHTML).join("");
-      if (empty) empty.classList.toggle("hidden", filtered.length>0);
       setupClamps();
     }
 
@@ -210,14 +208,16 @@
       p.file ? `<a href="${p.file}" target="_blank" rel="noopener">${extLabel(p.file)}</a>` : "",
       p.code_url ? `<a href="${p.code_url}" target="_blank" rel="noopener">${extLabel(p.code_url)}</a>` : "",
     ].filter(Boolean).join(" · ");
-    const heroImg = (p.hero || p.thumbnail) ? `<img src="${p.hero || p.thumbnail}" alt="" style="border-radius:10px;border:1px solid var(--border);margin:8px 0 12px">` : "";
+    const heroImg = (p.hero || p.thumbnail) ? `<img class="avatar project-hero" src="${p.hero || p.thumbnail}" alt="">` : "";
+    
     container.innerHTML = `
-      <h1>${safe(p.title)}</h1>
-      <div class="meta">${dateStr}${p.author ? (dateStr ? " · " : "") + safe(p.author) : ""}</div>
-      ${heroImg}
-      ${p.abstract ? `<div class="prose">${p.abstract}</div>` : ""}
-      <p>${actions}</p>
-      <div class="tags">${tags}</div>
+      <div class="project-detail">
+        ${heroImg}
+        <h1 class="project-title">${safe(p.title)}</h1>
+        <div class="meta">${dateStr}${p.author ? (dateStr ? " · " : "") + safe(p.author) : ""}</div>
+        <div class="tags">${tags}</div>
+        ${p.abstract ? `<div class="prose project-desc">${p.abstract}</div>` : ""}
+        <div class="project-actions">${actions}</div>
     `;
   }
 
