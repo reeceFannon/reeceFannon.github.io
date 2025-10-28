@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="LMPD Traffic Stops_files/libs/clipboard/clipboard.min.js"></script>
+<script src="LMPD Traffic Stops_files/libs/quarto-html/tabby.min.js"></script>
+<script src="LMPD Traffic Stops_files/libs/quarto-html/popper.min.js"></script>
+<script src="LMPD Traffic Stops_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="LMPD Traffic Stops_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="LMPD Traffic Stops_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="LMPD Traffic Stops_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="LMPD Traffic Stops_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <meta name="author" content="Reece Fannon">
+  <title>Beat Level Analysis of Racial Disparities in Stops and Searches by the Louisville Metro Police Department</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="LMPD Traffic Stops_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="LMPD Traffic Stops_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="LMPD Traffic Stops_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="LMPD Traffic Stops_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="LMPD Traffic Stops_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="LMPD Traffic Stops_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="LMPD Traffic Stops_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Beat Level Analysis of Racial Disparities in Stops and Searches by the Louisville Metro Police Department</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Reece Fannon 
+</div>
+</div>
+</div>
+
+</section>
+<section id="majority-race-distribution-in-louisville" class="slide level2 slide-title">
+<h2>Majority Race Distribution in Louisville</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Map</a></li><li><a href="#tabset-1-2">Commentary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div style="font-size: .9em;">
+<p>Louisville’s population of approximately 1.3 million is roughly 60% white, 23% black, 7% Hispanic/Latino, 3% Asian and 7% multiple and other races. A large proportion of the black population is concentrated in the second police district of Northwest Louisville, where the population is majority black. Ninth Street, commonly referred to as the <em>Ninth Street Divide</em>, defines a clear separation between the black majority areas to the east and the white majority areas in the west. The remainder of Louisville is predominantly white majority. These divides are largely the product of exclusionary housing policies, racial violence, and discriminatory lending practices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="racial-composition-of-stops-and-searches" class="slide level2 slide-title">
+<h2>Racial Composition of Stops and Searches</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Charts</a></li><li><a href="#tabset-2-2">Commentary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div id="tabset-2-2">
+<div style="font-size: .8em;">
+<p>For the most part, the proportion of traffic stops between white and black drivers in most police beats are in relation with the majority demographic in that beat. However, beats in district 4 noticeably show larger proportions for black drivers than white drivers, despite being majority white areas. This could be due to its close proximity to the majority black areas in district 2. Searches show a different story, with many beats even in white majority areas and even in areas that had higher proportions of white drivers being stopped showing larger proportions of black drivers being searched. For example, in beat 5 of district 6 (6 - 5), a white majority beat, black drivers only constitute roughly 25% of the stops, but about 75% of the searches.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="relative-risk-of-black-drivers-being-searched" class="slide level2 slide-title">
+<h2>Relative Risk of Black Drivers Being Searched</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Map</a></li><li><a href="#tabset-3-2">Commentary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div style="font-size: .6em;">
+<p>The map shows the relative risk of a black driver being searched compared to a white driver. Since only drivers who have been stopped can be searched, the proportion of searched drivers are a fraction out of the population of drivers being stopped. We calculate the relative risk as</p>
+<p><span class="math display">\[
+RR_{\text{Black} | \text{White}} = \frac{P(\text{Searched}\ |\ {\text{Black}})}{P(\text{Searched}\ |\ {\text{White}})} = \frac{\frac{\text{Searched}_{\text{Black}}}{\text{Stopped}_{\text{Black}}}}{\frac{\text{Searched}_{\text{White}}}{\text{Stopped}_{\text{White}}}}
+\]</span></p>
+<p>The relative risk represents how many times more likely is a black driver to be searched than a white driver, given that they were stopped. So <span class="math inline">\(RR &gt; 1\)</span> (more orange to red) means that black drivers were more likely to be searched than white drivers during a traffic stop, <span class="math inline">\(RR &lt; 1\)</span> (more blue) means that white drivers were more likely to be searched than black drivers during a traffic stop, and <span class="math inline">\(RR \approx 1\)</span> means that white and black drivers are roughly equally likely to be searched during a traffic stop and are searched roughly just as often as each other. We see broadly larger likelihood of black drivers being searched in East Louisville, as well as in the black majority beats. Interestingly, we see more equality in the West, with some beats even showing moderately higher rates of white drivers being searched.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="louisville-kentucky-timeline-of-events" class="slide level2 slide-title">
+<h2>Louisville, Kentucky Timeline of Events</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Timeline</a></li><li><a href="#tabset-4-2">Commentary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div style="font-size: .6em">
+<p>COVID-19 restrictions began in March 2020, which set a backdrop for a tense social climate. On March 13, Breonna Taylor was killed by Louisville police officers during a botched raid at her apartment, where the officers had received <em>no-knock search warrants</em> and forcibly entered the residence. George Floyd’s killing in Minneapolis on May 25 ignited nationwide protests, including Louisville’s own <em>#SayHerName</em> and <em>Black Lives Matter</em> demonstrations, which persisted well into 2021. On June 11, Louisville passed <em>Breonna’s Law</em> banning no-knock warrants. On July 23, the city commissioned the consulting firm <em>Hillard Heintze</em> to conduct a review of the LMPD, as well as provide guidance on how to reduce racial bias in policing. Kentucky’s <em>Senate Bill 4</em> limiting the use of <em>no-knock search warrants</em> statewide was signed into law on April 9 the next year. On April 26, 2021 the Department of Justice launched a civil-rights investigation into LPMD, an investigation which concluded on March 8, 2023 that the Louisville/Jefferson County Metro Government and the LMPD engage in a pattern or practice of conduct that violates people of their rights under the Constitution and federal law, including unlawful stops, searches, detainments, and arrests during traffic stops and unlawful discrimination against black people in their enforcement activities <span class="citation" data-cites="DOJ2023LMPD">(<a href="#/bibliography" role="doc-biblioref" onclick="">United States Department of Justice, Civil Rights Division and United States Attorney’s Office, Western District of Kentucky 2023</a>)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="research-question" class="slide level2">
+<h2>Research Question</h2>
+<p>Does a bias or disparity still exist in the rates at which white and black drivers are stopped or searched by LMPD officers? If they exist, can we pinpoint where they may exist?</p>
+</section>
+<section id="data" class="slide level2 slide-title">
+<h2>Data</h2>
+<div style="font-size: .5em;">
+<ul>
+<li><p>We use the 2020 and 2021 traffic stops data provided by the Louisville Metro city government <span class="citation" data-cites="LouisvilleMetroOpenData">(<a href="#/bibliography" role="doc-biblioref" onclick="">Louisville Metro Government 2025</a>)</span>. The data contains information about all recorded traffic stops in those years, including the location, date and time, demographic information about the officer and the driver, and whether the vehicle was searched during the stop. Note, however, that all stops have an associated citation number, and every stop resulted in either a warning or a citation.</p></li>
+<li><p>In addition to the the stops data, we also use the 2021 and 2022 uniform citation data, which contains the citing officer’s badge ID, to obtain an estimate of the number of police officers working in a given area <span class="citation" data-cites="LouisvilleMetroOpenData">(<a href="#/bibliography" role="doc-biblioref" onclick="">Louisville Metro Government 2025</a>)</span>. We calculate for each beat the number of unique badge ID’s as a proxy to police presence in that beat.</p></li>
+<li><p>We use US census data to obtain populations and available vehicle counts for each ethnic group from all census tracts within the Louisville Metro statistical area <span class="citation" data-cites="censusapi">(<a href="#/bibliography" role="doc-biblioref" onclick="">Recht 2022</a>)</span>. Population data comes from the 2022 American Community Survey 5 year estimates (since the one year estimates do not include census tracts below a certain population threshold) <span class="citation" data-cites="USCensus2022ACS5">(<a href="#/bibliography" role="doc-biblioref" onclick="">U.S. Census Bureau 2023</a>)</span>. Available vehicle counts come from the 2000 decennial census which is, admittedly, outdated <span class="citation" data-cites="USCensus2000SF3">(<a href="#/bibliography" role="doc-biblioref" onclick="">U.S. Census Bureau 2002</a>)</span>. We believe that vehicle counts would provide a more accurate representation of the available population that is capable of being stopped/searched. See the appendix slides for more details.</p></li>
+<li><p>We use Louisville Metro Statistical Area census tract and Louisville Metro police district shape files. Census data is merged with the census tract shape file data. To obtain population and vehicle counts for each beat, we merge this data with the police district shape file by assigning each census tract to the beat that contain the majority of the census tract.</p></li>
+<li><p>We limit the scope of our study to only stops involving white and black drivers, as other demographics had too small (even zero) counts.</p></li>
+</ul>
+</div>
+</section>
+<section id="spatial-clustering-analysis" class="slide level2 slide-title">
+<h2>Spatial Clustering Analysis</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Stops</a></li><li><a href="#tabset-5-2">Searches</a></li><li><a href="#tabset-5-3">Global Moran’s</a></li><li><a href="#tabset-5-4">Commentary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="columns">
+<div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div id="tabset-5-2">
+<div class="columns">
+<div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div id="tabset-5-3">
+<table class="caption-top">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 31%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Race | Variable of Interest</th>
+<th>Global Moran’s I</th>
+<th>P-Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>White | Rate of Stops</td>
+<td>3.14</td>
+<td>8.57^{-4}</td>
+</tr>
+<tr class="even">
+<td>White | Rate of Searches</td>
+<td>5.67</td>
+<td>6.97^{-9}</td>
+</tr>
+<tr class="odd">
+<td>Black | Rate of Stops</td>
+<td>2.43</td>
+<td>0.007468</td>
+</tr>
+<tr class="even">
+<td>Black | Rate of Searches</td>
+<td>4.43</td>
+<td>4.7^{-6}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-5-4">
+<div style="font-size: .3em;">
+<p>To test for spatial autocorrelation in the data, we use the <em>Moran’s</em> <span class="math inline">\(I\)</span> statistic. Moran’s I is a measure of spatial autocorrelation, indicating whether similar or dissimilar values of a variable tend to cluster together across geographic space <span class="citation" data-cites="Jing2025STA651">(<a href="#/bibliography" role="doc-biblioref" onclick="">Zhang 2024</a>)</span>. Let <span class="math inline">\(n\)</span> be the number of locations , <span class="math inline">\(y_i\)</span> be the value associated with the ith location (such as stop and search rates), and <span class="math inline">\(w_{ij}\)</span> be the weight/proximity between ith and jth locations (such as physical distance or a binary indicator if they are neighbors or not). Then Moran’s I is given by</p>
+<p><span class="math display">\[
+I = \frac{n\sum_{i = 1}^n\sum_{j = 1}^n w_{ij}(y_i - \bar{y})(y_j - \bar{y})}{(\sum_i\sum_j w_{ij})(\sum_{i = 1}^n(y_i - \bar{y})^2)}
+\]</span></p>
+<p>This can be looked at as a <em>spatially weighted form of Pearson’s correlation coefficient</em>, where the weights are from a proximity matrix. if <span class="math inline">\(I\)</span> is positive, then neighboring regions tend to have similar values; it will be negative if neighboring regions tend to have different/opposing values <span class="citation" data-cites="Jing2025STA651">(<a href="#/bibliography" role="doc-biblioref" onclick="">Zhang 2024</a>)</span>. With <span class="math inline">\(n = 43\)</span> police beats, we assume that the <span class="math inline">\(\text{z-score}\)</span> approximation will suffice. All global Moran statistics being significant, representing high similarity among neighboring police beats.</p>
+<p>In addition, we compute the <em>local moran’s</em> <span class="math inline">\(I\)</span> for each beat, which is basically just the <em>global moran’s</em> <span class="math inline">\(I\)</span> calculated only on the neighbors of that beat <span class="citation" data-cites="Jing2025STA651">(<a href="#/bibliography" role="doc-biblioref" onclick="">Zhang 2024</a>)</span>. We z-score the observation of every beat to get an even distribution of negative and positive values. We perform a series of three conditions: the sign of <span class="math inline">\(I\)</span> determines if the beat is strongly correlated with its neighbors (positive) and thus forms a cluster with its neighbors, or weakly correlated with its neighbors (negative) and thus is an outlier with its neighbors. We check the <span class="math inline">\(p_{\text{value}}\)</span> to determine if its a significant cluster point or a significant outlier. The sign of the <span class="math inline">\(z_{\text{score}}\)</span> value determines if the beat is a high (<span class="math inline">\(z_{\text{score}} &gt; 0\)</span>) value or a low (<span class="math inline">\(z_{\text{score}} &lt; 0\)</span>) value. So we can get one of five outcomes:</p>
+<ol type="1">
+<li><p>&nbsp;the beat forms a cluster (<span class="math inline">\(I &gt; 0\)</span>) and</p>
+<ol type="i">
+<li><p>is a high value (<span class="math inline">\(z_{\text{score}} &gt; 0\)</span>) and thus must be surrounded by high values</p></li>
+<li><p>is a low value (<span class="math inline">\(z_{\text{score}} &lt; 0\)</span>) and thus must be surrounded by low values</p></li>
+</ol></li>
+<li><p>the beat is an outlier (<span class="math inline">\(I &lt; 0\)</span>) and</p>
+<ol type="i">
+<li><p>is a high value (<span class="math inline">\(z_{\text{score}} &gt; 0\)</span>) and thus must be surrounded by low values</p></li>
+<li><p>is a low value (<span class="math inline">\(z_{\text{score}} &lt; 0\)</span>) and thus must be surrounded by high values</p></li>
+</ol></li>
+<li><p>the beat is not significant (<span class="math inline">\(p_{\text{value}} &gt; 0.2\)</span>).</p></li>
+</ol>
+<p>So we either get <em>high-high clusters</em>, <em>low-low clusters</em>, <em>high spatial outliers</em>, <em>low spatial outliers</em>, or <em>independent</em> beats.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model" class="slide level2 slide-title">
+<h2>Model</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Equation</a></li><li><a href="#tabset-6-2">Interpretation</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div style="font-size: .4em">
+<p>Let <span class="math inline">\(\mathbf{S}\)</span> be the study region of interest (in this case, the Louisville Metro area). Suppose <span class="math inline">\(\mathbf{S} = (S_1, S_2, \dots, S_K)\)</span> is partitioned into <span class="math inline">\(K\)</span> disjoint areal units (43 beats) and each unit contains <span class="math inline">\(J\)</span> response variables <span class="math inline">\(\mathbf{Y}_k = (Y_{k1}, Y_{k2}, \dots, Y_{kJ})\)</span> and <span class="math inline">\(J\)</span> corresponding offsets <span class="math inline">\(\mathbf{O}_k = (O_{k1}, O_{k2}, \dots, O_{kj})\)</span>. Then the model is given by</p>
+<p>$$</p>
+<span class="math display">\[\begin{aligned}
+Y_{kj} | \mu_{kj} &amp;\sim f(y_{kj} | \mu_{kj}, \nu_{kj}^2) \\
+
+g(\mu_{kj}) &amp;= \mathbf{x}_k^T\beta_j + O_{kj} + \phi_{kj} \\
+
+\beta_j &amp;\sim \text{N}(\mathbf{\mu}, \mathbf{\Sigma}) \\
+
+\nu_{kj}^2 &amp;\sim \text{Gamma}^{-1}(a, b)
+\end{aligned}\]</span>
+<p>$$</p>
+<p>for <span class="math inline">\(k = 1,\dots,K\)</span> and <span class="math inline">\(\ j = 1,\dots,J\)</span>, where <span class="math inline">\(f(y_{kj} | \mu_{kj}, \nu_{kj})\)</span> is the <em>Poisson</em> (stops) or <em>Binomial</em> (searches) pmfs and <span class="math inline">\(g(\mu_{kj}) = ln(\mu_{kj})\)</span> or <span class="math inline">\(g(\theta_{kj}) = ln(\frac{\theta_{kj}}{1 - \theta_{kj}})\)</span>, respectively. Additionally, we have the following prior given on <span class="math inline">\(\phi_k\)</span> <span class="citation" data-cites="CARBayes">(<a href="#/bibliography" role="doc-biblioref" onclick="">Lee 2013</a>)</span>:</p>
+<p>$$</p>
+<span class="math display">\[\begin{aligned}
+\phi_k | \phi_{-k}, \mathbf{W}, \mathbf{\Sigma} &amp;\sim \text{N}\left( \frac{\rho\sum_{i \in N(S_k)}w_{ij}\phi_{ij}}{\rho\sum_{i \in N(S_k)}w_{ij} + 1 - \rho}, \frac{\mathbf{\Sigma}}{\rho\sum_{i \in N(S_k)}w_{ij} + 1 - \rho} \right) \\
+
+\mathbf{\Sigma} &amp;\sim \text{Wishart}^{-1}(df, \Omega) \\
+
+\rho &amp;\sim \text{U}(0, 1)
+\end{aligned}\]</span>
+<p>$$</p>
+</div>
+</div>
+<div id="tabset-6-2">
+<div style="font-size: .55em">
+<p>We investigate stops/searches at beat-level using spatial correlations between beats. Spatial dependencies are accounted for in the variance/covariance structure of the model. The fixed effect (<span class="math inline">\(\mathbf{x}\)</span>) are given by the district the beat exists within and the police presence in that beat. We assume that each district has varying needs, socioeconomic conditions, demographic compositions and policies and thus may be a confounding variable on beats within the same district, and we also assume that higher police presence will naturally lead to higher number of stops (or higher police presence may correlate to higher criminal activity, which could lead to more stops and searches). The spatial part of the model is given by the random effects (<span class="math inline">\(\phi\)</span>) term. Given the variation unexplained by the fixed effects (basically the residuals of the covariates) then did the model either overestimate (negative residual) or underestimate (positive residual) the true value. The random effect <span class="math inline">\(\phi\)</span> for that beat will adjust either up or down the final fitted value. In this sense, <span class="math inline">\(\phi\)</span> is similar to a random intercept, but we pull the phi values of all other beats. Notice that the expected value for phi depends on the neighbor’s (first order neighbors) <span class="math inline">\(\phi\)</span> values, which will then depend on their neighbor’s (second order neighbors) <span class="math inline">\(\phi\)</span> values, and so on. Due to this nested structure of the <span class="math inline">\(\phi\)</span> values, then every <span class="math inline">\(\phi\)</span> value depends on every other <span class="math inline">\(\phi\)</span> value. So all beats communicate with each other. Note that first order neighbors have coefficient <span class="math inline">\(\rho\)</span> and second order neighbors will have a coefficient of <span class="math inline">\(\rho^2\)</span>. In general, the mth order neighbor has a coefficient of <span class="math inline">\(\rho^m\)</span>, so <span class="math inline">\(\rho\)</span> is the rate of decay. Further away neighbors have less weight in the final value of <span class="math inline">\(\phi\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="difference-in-stops-rates-between-white-and-black-drivers" class="slide level2 slide-title">
+<h2>Difference in Stops Rates Between White and Black Drivers</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Intervals</a></li><li><a href="#tabset-7-2">Spatial Latent Effects</a></li><li><a href="#tabset-7-3">Commentary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-3">
+<div style="font-size: .5em">
+<p>We get the posterior samples generated from the Monte Carlo sampling to get a posterior distribution of stop rates for both white and black drivers, then take the difference in stop rates between white and black drivers to obtain an approximate posterior distribution for the difference in rates. We use these posterior distributions to obtain 95% credible intervals on the difference in stop rates between white and black drivers. If the credible interval is entirely positive, then the stop rate for white drivers is higher, and if the credible interval is entirely negative, then the stop rate for black drivers is higher.</p>
+<p>Most districts show higher stop rates for black drivers, though perhaps by only a small amount. The most worrying beats are <em>5 - 4</em>, <em>6 - 1</em>, <em>7 - 2</em> and <em>8 - 5</em>. These four beats show much higher stop rates for black drivers than for white drivers. Some districts show a bias towards stopping white drivers at higher rates, in particular districts 1 and 2, which corresponds to the Northwest region of Louisville where the <em>ninth street divide</em> occurs, with the west side (largely district 2) being the majority black population.</p>
+<p>If the residuals are still spatially correlated after the fixed effects, then we should expect the model over/under-estimated in the same general locations, so positive residuals next to other positive residuals and negative next to other negative. Then the added <span class="math inline">\(\phi\)</span> value will reflect this and either add or subtract from the fitted value to pull it closer to the true value. Green values are positive <span class="math inline">\(\phi\)</span> values (model underestimated) and pink is negative <span class="math inline">\(\phi\)</span> values (model overestimated). Since there is a spatial pattern in the green and pink phi values, and are not randomly scattered, then the spatially autocorrelated term was needed. The residuals from the fixed effect were spatially autocorrelated. The model generally overestimated in the North and underestimated in the South.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="difference-in-search-rates-between-white-and-black-drivers" class="slide level2 slide-title">
+<h2>Difference in Search Rates Between White and Black Drivers</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Intervals</a></li><li><a href="#tabset-8-2">Spatial Latent Effects</a></li><li><a href="#tabset-8-3">Commentary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<div class="cell" data-layout-align="center" data-fig.wdith="10">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-3">
+<div style="font-size: .6em">
+<p>We get the posterior samples generated from the Monte Carlo sampling to get a posterior distribution of search rates for both white and black drivers, then take the difference in search rates between white and black drivers to obtain an approximate posterior distribution for the difference in rates. We use these posterior distributions to obtain 95% credible intervals on the difference in search rates between white and black drivers. If the credible interval is entirely positive, then the search rate for white drivers is higher, and if the credible interval is entirely negative, then the search rate for black drivers is higher.</p>
+<p>Most beats show a small bias towards black drivers. There are not many beats with significant differences in search rates between white and black drivers. Any <em>significant</em> differences that do exist show small absolute differences. This is surprising, especially given beats like <em>5 - 5</em> that showed a near 8 times higher likelihood of black drivers being searched than white drivers. However, it must be noted that the number of searches occurring in a beat is very small compared to the number of stops, with many beats even haginv as few as just a few searches over the course of the two years 2021 and 2022. Thus, a relatively small number of searches divided by a relatively large number of stops will result in rates near zero, and thus differences near zero. So while this would explain the magnitude in observed differences, it also calls into question the power of these intervals.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discussion" class="slide level2">
+<h2>Discussion</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Limitations</a></li><li><a href="#tabset-9-2">Conclusions</a></li><li><a href="#tabset-9-3">Future Work</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div style="font-size: .6em">
+<ul>
+<li><p>This analysis only addresses whether a disparity in stops and searches between white and black drivers exists in 2021 and 2022. However, it does not say whether or not conditions have improved. After all, many of the initiatives by the Louisville city government to ameliorate conditions have only been in effect for a short time, so it is understandable that disparities still exist.</p></li>
+<li><p>All stops recorded in the data are stops that resulted in either a warning or a citation. It is difficult to evaluate disparity and bias on the grounds of race when the data represents true positives.</p></li>
+<li><p>The available vehicle counts are from the 2000 decennial census, which is the most recent data we could find about vehicle availability stratified by various demographic groups. This data is out of date and may no longer be reflective of current distributions (either in magnitude or in proportion).</p></li>
+<li><p>Population and vehicle counts were assigned to beats based on areal intersections. However, this means that some people who live within a census tract may be assigned to a beat they do not live within, potentially skewing the observed exposure within certain beats. A more careful and thorough assignment of these counts should be considered.</p></li>
+</ul>
+</div>
+</div>
+<div id="tabset-9-2">
+<ul>
+<li><p>Disparities on the grounds of race may still exist in traffic police enforcement in 2021and 2022.</p></li>
+<li><p>More thorough investigation into the identified significant areas should be considered, with special attention given to the beats <em>5 - 4</em>, <em>6 - 1</em>, <em>7 - 2</em> and <em>8 - 5</em> for their extremely disparate stop rates.</p></li>
+<li><p>There appears to be a spatial and district level component to observed disparities.</p></li>
+</ul>
+</div>
+<div id="tabset-9-3">
+<ul>
+<li><p>Analyzing data both before and after the 2020 initiatives could see if marked improvements towards racial equality have been made.</p></li>
+<li><p>We believe that vehicle counts are still a better measure of exposure than raw population counts. Efforts can be made to obtain more accurate and up-to-date vehicle counts.</p></li>
+<li><p>Repeating the analysis with more ethnic groups could be considered.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section>
+<section id="thank-you" class="title-slide slide level1 slide-title center">
+<h1>Thank You</h1>
+
+</section>
+<section id="comparing-populations-to-available-vehicle-counts" class="slide level2 slide-title">
+<h2>Comparing Populations to Available Vehicle Counts</h2>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Test</a></li><li><a href="#tabset-10-2">Commentary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div style="font-size: .45em;">
+<p>We want available vehicles because not everyone in the population is actually driving. If only 10 out of 1000 residents are pulled over, then that is not too bad. But if only 50 of those residents actually have a car, then suddenly this seems really bad. Available Vehicles as defined in the census <strong>IS NOT</strong> whether or not you own a vehicle, but more broadly do you have access to a vehicle to get to where you need to go. For example, a college student doesn’t own their car, but they use it. Or if you have a rental car.</p>
+<p>We use the <em>Frobenius norm</em> to calculate the <em>distance</em> between the population counts data and the vehicle counts data We needed a way to test if the distributions of populations and available vehicles are the same or different. This is important because if they are the same, then we could say that one is approximately a linear combination of the other, and thus the choice of data set as an offset term is arbitrary because they contain the same variance/covariance information, the only difference is scale and location. We needed a way to test a difference in distribution that takes into account the three dimensions of each data set (beat, race, and counts). If we treat the beat dimension as the rows, the race dimension as the columns, the count dimension as the elements, then each data set is a matrix, and any metric computed on both matrices gives us the data set dimension. The <em>Frobenius norm</em> was chosen because it allows us to take the <em>distance</em> between the two data sets. We standardize counts to remove the scale and location effects on the calculation, since we are only interested in the distribution, not the actual values (obviously population counts will be much greater than vehicle counts). If the norm is close to zero, then these two data sets are highly similar and correlated. If the norm is large, then these two data sets exist in very different places in the matrix space, and are not correlated. We bootstrap the rows of the difference matrix so that we keep all information about a beat consistent (we don’t want to confound beats together via permutation). The bootstrapped samples gives us a sampling distribution of the <em>Frobenius norms</em>, and samples with smaller norms represent possible realizations of the populations and vehicle counts that are more highly correlated with each other.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-analysis" class="slide level2 slide-title">
+<h2>Fit Analysis</h2>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Obs vs.&nbsp;Fit</a></li><li><a href="#tabset-11-2">Res vs.&nbsp;Fit</a></li><li><a href="#tabset-11-3">QQ-Plots</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-11-3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="LMPD-Traffic-Stops_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-coefficients" class="slide level2">
+<h2>Model Coefficients</h2>
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Stops</a></li><li><a href="#tabset-12-2">Searches</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+#################
+#### Model fitted
+#################
+Likelihood model - Poisson (log link function) 
+Random effects model - Leroux MCAR
+Regression equation - numStopped ~ district + numOfficers + offset(log(numVehicles))
+
+
+#################
+#### MCMC details
+#################
+Total number of post burnin and thinned MCMC samples generated - 10000
+Number of MCMC chains used - 1
+Length of the burnin period used for each chain - 5e+05
+Amount of thinning used - 50
+
+############
+#### Results
+############
+Posterior quantities and DIC
+
+                           Mean    2.5%   97.5% n.effective Geweke.diag
+stopWhite - (Intercept) -3.2942 -5.3091 -1.0814        26.7         0.5
+stopWhite - district2    0.6225 -1.3260  2.3335        13.8        -0.4
+stopWhite - district3   -1.4539 -3.3729  0.3461        12.4         0.5
+stopWhite - district4   -1.9397 -3.6667 -0.6177        22.3         0.3
+stopWhite - district5   -0.3325 -2.1915  1.5463        10.1         0.0
+stopWhite - district6   -1.6846 -3.5839 -0.1594        13.7         0.6
+stopWhite - district7   -0.7685 -2.2226  0.7965        16.1         0.0
+stopWhite - district8    0.0834 -2.7627  2.0208         7.2         0.9
+stopWhite - numOfficers  0.0140  0.0027  0.0237        81.3        -1.8
+stopBlack - (Intercept) -2.2125 -4.2767  0.0911        39.1         1.1
+stopBlack - district2   -0.9758 -3.1672  0.7601        21.1        -0.4
+stopBlack - district3    0.9758 -1.1949  3.0082        14.1         1.6
+stopBlack - district4   -0.2719 -1.9299  1.3739        30.6         0.6
+stopBlack - district5    1.8121 -0.4426  3.7891        16.8         0.2
+stopBlack - district6   -0.2544 -2.3565  1.5074        17.7         0.1
+stopBlack - district7    1.2529 -1.3369  2.7769        21.4        -0.2
+stopBlack - district8    1.1286 -2.1080  3.2667         7.9         0.7
+stopBlack - numOfficers  0.0076 -0.0051  0.0199        84.4        -2.0
+Sigma11                  2.0944  0.9190  4.4376        85.6        -2.2
+Sigma22                  3.5196  1.4848  7.6978        63.3        -2.4
+rho                      0.2339  0.0109  0.6894        67.6        -2.1
+
+DIC =  782.0751       p.d =  87.80258       LMPL =  -432.49 </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-12-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+#################
+#### Model fitted
+#################
+Likelihood model - Binomial (logit link function) 
+Random effects model - Leroux MCAR
+Regression equation - numSearched ~ district + numOfficers
+
+
+#################
+#### MCMC details
+#################
+Total number of post burnin and thinned MCMC samples generated - 10000
+Number of MCMC chains used - 1
+Length of the burnin period used for each chain - 5e+05
+Amount of thinning used - 50
+
+############
+#### Results
+############
+Posterior quantities and DIC
+
+                             Mean    2.5%   97.5% n.effective Geweke.diag
+searchWhite - (Intercept) -1.2736 -3.2742  0.6976       139.4         1.4
+searchWhite - district2    0.2878 -1.2420  1.8096       239.7        -1.0
+searchWhite - district3   -0.7653 -2.3533  0.8391       202.0        -0.3
+searchWhite - district4    0.3825 -1.0812  1.8848       203.7        -0.7
+searchWhite - district5   -1.9802 -3.6944 -0.2051       216.6        -1.7
+searchWhite - district6   -1.3335 -2.8697  0.3208       123.8        -0.9
+searchWhite - district7   -2.1112 -3.8449 -0.3110       152.6        -0.6
+searchWhite - district8   -2.9719 -4.9410 -0.8970       136.7        -1.3
+searchWhite - numOfficers -0.0083 -0.0189  0.0025      1438.9        -2.0
+searchBlack - (Intercept) -1.0657 -3.1201  0.9679       115.2         1.1
+searchBlack - district2    0.3667 -1.1741  1.8330       176.0        -0.8
+searchBlack - district3   -1.2646 -2.8810  0.4546       133.7        -0.1
+searchBlack - district4    0.1999 -1.2528  1.7120       129.1        -0.5
+searchBlack - district5   -1.4278 -3.1119  0.3935       150.7        -1.5
+searchBlack - district6   -0.6690 -2.1960  1.0387       116.5        -0.6
+searchBlack - district7   -2.0790 -3.8215 -0.1845       124.1        -0.3
+searchBlack - district8   -2.3839 -4.4324 -0.1442       143.3        -1.2
+searchBlack - numOfficers -0.0059 -0.0165  0.0048       964.7        -1.7
+Sigma11                    1.8270  0.6992  3.7937      2087.6        -1.5
+Sigma22                    1.8049  0.7119  3.7452      1564.3        -1.5
+rho                        0.3745  0.0291  0.8424      1570.1        -1.1
+
+DIC =  481.1621       p.d =  63.64294       LMPL =  -263.57 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="bibliography" class="slide level2 smaller scrollable">
+<h2>Bibliography</h2>
+<div style="font-size: .7em">
+
+</div>
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+<p>Beat Level Analysis of Racial Disparities in Stops and Searches by the Louisville Metro Police Department</p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-CARBayes" class="csl-entry" role="listitem">
+Lee, Duncan. 2013. <span>“<span>CARBayes</span>: An <span>R</span> Package for <span>B</span>ayesian Spatial Modeling with Conditional Autoregressive Priors.”</span> <em><span>Journal of Statistical Software</span></em> 55 (13): 1–24. <a href="https://doi.org/10.18637/jss.v055.i13">https://doi.org/10.18637/jss.v055.i13</a>.
+</div>
+<div id="ref-LouisvilleMetroOpenData" class="csl-entry" role="listitem">
+Louisville Metro Government. 2025. <span>“Louisville Metro Open Data Portal.”</span> <a href="https://data.louisvilleky.gov/" class="uri">https://data.louisvilleky.gov/</a>.
+</div>
+<div id="ref-censusapi" class="csl-entry" role="listitem">
+Recht, Hannah. 2022. <span>“Censusapi: Retrieve Data from the Census APIs.”</span> <a href="https://www.hrecht.com/censusapi/">https://www.hrecht.com/censusapi/</a>.
+</div>
+<div id="ref-DOJ2023LMPD" class="csl-entry" role="listitem">
+United States Department of Justice, Civil Rights Division, and United States Attorney’s Office, Western District of Kentucky. 2023. <span>“Investigation of the Louisville Metro Police Department and Louisville Metro Government.”</span> Washington, D.C.: U.S. Department of Justice.
+</div>
+<div id="ref-USCensus2000SF3" class="csl-entry" role="listitem">
+U.S. Census Bureau. 2002. <span>“Census 2000 Summary File 3 (SF 3) - Sample Data: Table HCT033A.”</span> <a href="https://api.census.gov/data/2000/sf3.html" class="uri">https://api.census.gov/data/2000/sf3.html</a>.
+</div>
+<div id="ref-USCensus2022ACS5" class="csl-entry" role="listitem">
+———. 2023. <span>“American Community Survey 5-Year Estimates, 2018–2022: Table B02001.”</span> <a href="https://api.census.gov/data/2022/acs/acs5.html" class="uri">https://api.census.gov/data/2022/acs/acs5.html</a>.
+</div>
+<div id="ref-Jing2025STA651" class="csl-entry" role="listitem">
+Zhang, Jing. 2024. <span>“Lecture Notes for STA 651: Spatial Data Analysis.”</span>
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="LMPD Traffic Stops_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="LMPD Traffic Stops_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

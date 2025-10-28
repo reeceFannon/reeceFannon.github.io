@@ -1,0 +1,4 @@
+.title{font-size: 2em !important;} /* Title slide title */
+.slide-title h2{font-size: 1.2em; width: 200%; margin: 0 auto; padding-bottom: 10px;} /* Slide title */
+.slide-title h1{font-size: 15em; margin: 0 auto;}
+.reveal section.panel-title h2{font-size: .5em; !important; padding-bottom: 0px;} /* Panel names */
