@@ -2,10 +2,10 @@
   "about": {
     "name": "Reece Fannon",
     "title": "Data Analyst and Math Enthusiast",
-    "bio": "I am a graduate of Miami University with an M.S. in Statistics, where I developed expertise in statistical modeling, machine learning, data analysis, and deep learning. I have a strong interest in mathematics—both theoretical and applied—and enjoy projects that combine quantitative rigor with real-world impact. Skilled in R, Python, and applied data science, I’m seeking opportunities to apply and share my passion for data analytics, mathematical modeling, research, or teaching. I’m motivated by solving complex problems, discovering patterns in data, and communicating insights that drive understanding and innovation.",
+    "bio": "I have a Bachelor's in Mathematics and Statistics and a Master's in Statistics from Miami University in Oxford, Ohio. I am deeply interested in data science, data analysis and pretty much all branches of mathematics. I use math and statistics to solve problems and questions that I am interested in, even random ones. I will be uploading my projects to this page to serve as a compendium of my works.",
     "photo": "imgs/perfectDark2.jpg",
     "email": "reece.fannon@outlook.com",
-    "location": "Sidney, OH, USA",
+    "location": "Ohio, USA",
     "social": {
       "github": "https://github.com/reecefannon",
       "linkedin": "https://linkedin.com/in/reecefannon"
@@ -59,7 +59,7 @@
     {
       "id": "traffic-stops",
       "title": "Beat Level Analysis of Racial Disparities in Stops and Searches by the Louisville Metro Police Department",
-      "author": "Reece Fannon & Viren Gadkari",
+      "author": "Reece Fannon",
       "date": "12 December 2024",
       "abstract": "This project was originally a presentation, which I rebuilt using <i>Quarto</i>. I added text-heavy slides to act as a substitute for the verbal component of the presentation. This project investigates racial disparities in traffic stops and searches conducted by the Louisville Metro Police Department (LMPD) in 2021 and 2022 using a spatial conditional autoregressive (CAR) model.",
       "tags": ["Data Analysis", "Bayesian", "Spatial", "Spatial Regression", "CAR"],
