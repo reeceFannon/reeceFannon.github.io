@@ -1,7 +1,3 @@
-/* assets/site.js
-   JSON-driven GitHub Pages (no Jekyll, no build)
-   Expects JSON at data/profile.json with { about: {...}, projects: [...] }
-*/
 (function () {
   const JSON_PATH = "data/portfolio.json";
 
