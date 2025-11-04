@@ -2858,10 +2858,11 @@ Y_T = \sum_{i = 1}^{N}Y_i = \sum_{s = 1}^{n_S}Y_s + \sum_{e = 1}^{n_E}Y_e = n_S\
 <p><span class="math display">\[
 \begin{aligned}
 \text{95% Confidence Interval} &amp;\approx \bar{Y}_T \pm 1.96\sqrt{V(\bar{Y}_T)} \\
-\text{95% Confidence Interval for Total} &amp;\approx N\bar{Y}_T \pm 1.96\sqrt{V(N(\frac{n_S}{N}\bar{Y}_S + \frac{n_E}{N}\bar{Y}_E))} \\
-&amp; = N(n_S\bar{Y}_S + n_E\bar{Y}_E) \pm 1.96\sqrt{V(n_S\bar{Y}_S + n_E\bar{Y}_E))}\\
-&amp; = N(n_S\bar{Y}_S + n_E\bar{Y}_E) \pm 1.96\sqrt{n_SV(\bar{Y}_S) + n_EV(\bar{Y}_E))}\\
-&amp; = N(n_S\bar{Y}_S + n_E\bar{Y}_E) \pm 1.96\sqrt{n_Ss_S^2 + n_Es_E^2}\\
+\text{95% Confidence Interval for Total} &amp;\approx N\bar{Y}_T \pm 1.96\sqrt{V(N\bar{Y}_T)} \\
+&amp;\approx N(\frac{n_S}{N}\bar{Y}_S + \frac{n_E}{N}\bar{Y}_E) \pm 1.96\sqrt{V(N(\frac{n_S}{N}\bar{Y}_S + \frac{n_E}{N}\bar{Y}_E))} \\
+&amp; = (n_S\bar{Y}_S + n_E\bar{Y}_E) \pm 1.96\sqrt{V(n_S\bar{Y}_S + n_E\bar{Y}_E))}\\
+&amp; = (n_S\bar{Y}_S + n_E\bar{Y}_E) \pm 1.96\sqrt{n_SV(\bar{Y}_S) + n_EV(\bar{Y}_E))}\\
+&amp; = (n_S\bar{Y}_S + n_E\bar{Y}_E) \pm 1.96\sqrt{n_Ss_S^2 + n_Es_E^2}\\
 \end{aligned}
 \]</span></p>
 <p>where <span class="math inline">\(n_S, \bar{Y}_S, s_S\)</span> and <span class="math inline">\(n_E, \bar{Y}_E, s_E\)</span> are the population size, sample means and sample standard deviations for the students and employees, respectively, assuming that students and employees are independent.</p>
@@ -3553,3 +3554,4 @@ Zhu, Hao. 2024. <span>“kableExtra: Construct Complex Table with ’Kable’ an
   
 </body>
 </html>
+
