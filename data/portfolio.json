@@ -66,6 +66,17 @@
       "file": "files/LMPD%20Traffic%20Stops/LMPD%20Traffic%20Stops.html",
       "code_url": "",
       "thumbnail": "imgs/police.png"
+    },
+    {
+      "id": "correlation-test",
+      "title": "Hypothesis Tests on the Correlation Coefficient",
+      "author": "Reece Fannon",
+      "date": "11 October 2024",
+      "abstract": "This report was originally created during my regression course in Fall 2021. I updated and repurposed the report during my second year as a graduate assistantship when one of the regression students asked about the relationship between the slope and the correlation coefficient. My response to that student was this report, and I shared this report with the rest of the class. The report details how the slope and correlation coefficient between two random variables are related to each other, and derives a sampling distribution of the correlation coefficient from which we can conduct hypothesis tests. We verify the validity of the derivations using a simple simulation study.",
+      "tags": ["Statistical Inference", "Regression", "Hypothesis Testing", "R"],
+      "file": "files/Testing%20Correlation%20Instead%20of%20Slope.html",
+      "code_url": "",
+      "thumbnail": "imgs/scatterplot.png"
     }
   ]
 }
