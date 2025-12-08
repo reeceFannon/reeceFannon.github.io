@@ -77,6 +77,17 @@
       "file": "files/Testing%20Correlation%20Instead%20of%20Slope.html",
       "code_url": "",
       "thumbnail": "imgs/scatterplot.png"
+    },
+    {
+      "id": "ACNH-flowers",
+      "title": "Optimal Flower Breeding Paths in Animal Crossing: New Horizons",
+      "author": "Reece Fannon",
+      "date": "23 April 2023",
+      "abstract": "This project is currently not being actively worked on. This project was originally created Spring 2022 but the github repository was not created until much later, when I decided that some of my projects should be archived and shared somewhere. The idea for this project spawned during my brutal journey of breeding a flower of every possible phenotype in Animal Crossing: New Horizons for the Nintendo Switch. That process involved weeks and weeks of mindless resetting the game and moving the console clock forward to all rainy days on my island's weather seed. I used some guides to help me breed certain phenotypes faster, but I thought about how those guides figured out their recipes, and if they were truly optimal. Hence, this project was born (a year and a half later)",
+      "tags": ["Markov Chains", "Decision Trees", "Assumptions", "Python", "R", "Gaming"],
+      "file": "",
+      "code_url": "https://github.com/reeceFannon/ACNH-Breeding-Policies",
+      "thumbnail": "imgs/ACNH_leaf.png"
     }
   ]
 }
